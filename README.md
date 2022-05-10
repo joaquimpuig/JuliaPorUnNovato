@@ -20,6 +20,7 @@ https://github.com/joaquimpuig/JuliaPorUnNovato/blob/main/Figura8NBodysimulator.
 - [Simulando el atractor de Hénon mediante DifferentialEquations.](https://github.com/joaquimpuig/JuliaPorUnNovato/blob/main/discrete-henon.jl) [Hilo en Twitter.](https://twitter.com/quim_polit/status/1507258330972049408?s=20&t=wXnI5hw1qtyu4VDLdhEqKg)
 - [Diferenciación automática mediante Zygote.](https://github.com/joaquimpuig/JuliaPorUnNovato/blob/main/zygote-showcase.jl) [Hilo en Twitter](https://twitter.com/quim_polit/status/1501170763596017665?s=20&t=wXnI5hw1qtyu4VDLdhEqKg)
 - [El paquete Symbolics y cálculos simbólicos en Julia.](https://github.com/joaquimpuig/JuliaPorUnNovato/blob/main/symbolics.jl) [Hilo en Twitter.](https://twitter.com/quim_polit/status/1508758278318313473?s=20&t=wXnI5hw1qtyu4VDLdhEqKg)
+- [Generación de informes automáticos con `Weave.jl`](https://github.com/joaquimpuig/JuliaPorUnNovato/blob/main/ejemplo.jmd) [Hilo en Twitter](https://twitter.com/quim_polit/status/1523932936848003072?s=20&t=jRqD0kmxOf-Gcj7fRT1_ww)
 
 
 ![henon_attractor](https://user-images.githubusercontent.com/2746614/161219270-a10f7a27-32f3-4c68-ab71-c6e388b9f7ae.gif)
