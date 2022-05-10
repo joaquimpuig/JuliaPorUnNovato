@@ -1,0 +1,80 @@
+---
+title: Creando Informes Automáticos con Julia
+author: Joaquim Puig
+date: Mayo 2022
+---
+
+
+# Introducción 
+
+Con el lenguaje [Julia](http://julialang.org/) se pueden producir documentos en 
+markdown que incluyan comandos y se compilan con [Weave.jl](https://github.com/JunoLab/Weave.jl).
+
+Los usuarios de [RMarkdown](https://rmarkdown.rstudio.com/) lo usan 
+de forma habitual. 
+
+Internamente `Weave.jl` toma el fichero `ejemplo.jmd` y produce un 
+html `ejemplo.html` mediante
+
+```{julia; eval=false}
+using Weave
+weave("ejemplo.jmd")
+```
+También se puede convertir a la siguiente lista de formatos 
+
+```{julia; eval=false}
+github: Github markdown
+md2tex: Julia markdown to latex
+pandoc2html: Markdown to HTML (requires Pandoc)
+pandoc: Pandoc markdown
+pandoc2pdf: Pandoc markdown
+tex: Latex with custom code environments
+texminted: Latex using minted for highlighting
+md2html: Julia markdown to html
+rst: reStructuredText and Sphinx
+multimarkdown: MultiMarkdown
+md2pdf: Julia markdown to latex
+asciidoc: AsciiDoc
+```
+
+añadiendo `doc_type="pandoc"` a los comandos.
+
+Las secciones, etc... se indican mediante el formato Markdown:
+
+```{julia; eval=false}
+# Título
+## Secundario
+### Terciario
+#### Cuaternario?
+**Negrita**
+*Itálica*
+[Enlace](https://www.wikipedia.org)
+```
+
+# Título
+## Secundario
+### Terciario
+#### Cuaternario?
+**Negrita**
+*Itálica*
+[Enlace](https://www.wikipedia.org)
+
+# Informes Automáticos
+
+Una posible utilidad de este paquete es producir informes 
+de forma automática descargando datos de un proveedor y realizando
+visualizaciones y datos 
+
+```{julia}
+using HTTP, JSON
+resp = HTTP.get("https://analisi.transparenciacatalunya.cat/resource/bks7-dkfd.json")
+str = String(resp.body)
+jobj = JSON.Parser.parse(str)
+using Plots, Dates
+
+scatter([DateTime(dd["data_incendi"]) for dd in jobj],
+[dd["haforestal"] for dd in jobj],
+legend=false, 
+title="Incendios Forestales"
+)
+```
