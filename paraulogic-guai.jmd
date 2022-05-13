@@ -31,7 +31,7 @@ pretty_table(dfparaulogic, backend = :html)
 
 # Referències
 
-(Diccionari Informatitzat de l’Scrabble en Català)[http://escrable.montane.cat/diccionari/]
-(Data Wrangling with DataFrames.jl Cheat Sheet)[https://www.ahsmart.com/pub/data-wrangling-with-data-frames-jl-cheat-sheet/]
-(Aquest document en Jmd)[https://github.com/joaquimpuig/JuliaPorUnNovato/paraulogic-guai.jmd]
+[Diccionari Informatitzat de l’Scrabble en Català](http://escrable.montane.cat/diccionari/)
+[Data Wrangling with DataFrames.jl Cheat Sheet](https://www.ahsmart.com/pub/data-wrangling-with-data-frames-jl-cheat-sheet/)
+[Aquest document en Jmd](https://github.com/joaquimpuig/JuliaPorUnNovato/paraulogic-guai.jmd)
 
