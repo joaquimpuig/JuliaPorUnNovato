@@ -1,0 +1,37 @@
+---
+title: Resolució del Paraulògic amb Julia
+author: Usant la base de dades de Scrabble Català
+---
+
+El tidyverse és una col·lecció de paquets en R per a 
+la manipulació i anàlisi de dades que és molt útil d'aprendre.
+En Julia el paquet 'DataFrame' permet replicar-ho força bé. Per 
+practicar, he fet una rutina per resoldre el Paraulògic:
+
+
+```{julia}
+using DataFrames, CSV, Pipe
+df=CSV.read("./mots.csv", DataFrame)
+
+lletra_central="I" #Sempre les strings en
+lletres_voltant="SFOECA"
+lletres=lletra_central*lletres_voltant #Concatenacio 
+
+# Per poder usar una seqüencia d'ordres aixi cal el paquet Pipe
+dfparaulogic= @pipe df|> 
+    filter(row->contains(row.MOT,lletra_central),_) |> 
+    filter(row->intersect(unique(row.MOT),lletres)==unique(row.MOT),_) |>
+    filter(row -> length(row.MOT)>2,_) 
+
+using PrettyTables    # Això és perquè quedi bonic 
+pretty_table(dfparaulogic, backend = :html)
+```
+
+
+
+# Referències
+
+(Diccionari Informatitzat de l’Scrabble en Català)[http://escrable.montane.cat/diccionari/]
+(Data Wrangling with DataFrames.jl Cheat Sheet)[https://www.ahsmart.com/pub/data-wrangling-with-data-frames-jl-cheat-sheet/]
+(Aquest document en Jmd)[https://github.com/joaquimpuig/JuliaPorUnNovato/paraulogic-guai.jmd]
+
